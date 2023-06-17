@@ -14,7 +14,9 @@ There are two terminals:
    > >
    > node server.js
 2. FRONT-END
-   > cd front-end
+3. > cd front-end
+   > >
+   > npm create-react-app
    > >
    > npm install axios
    > >
