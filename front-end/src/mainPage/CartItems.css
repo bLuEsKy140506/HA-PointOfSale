@@ -1,0 +1,44 @@
+h2 {
+  text-align: center;
+}
+
+table {
+  width: 100%;
+  font-size: 0.8rem;
+}
+
+table,
+th,
+td {
+  text-align: center;
+  border: 1px solid brown;
+  border-collapse: collapse;
+}
+
+th > td {
+  text-align: center;
+}
+th,
+td {
+  padding: 15px 5px;
+}
+th {
+  font-weight: bolder;
+}
+
+tr:nth-child(even) {
+  background-color: #d4cdc5;
+}
+
+.badge:after {
+  content: attr(value);
+  font-size: 12px;
+  background: brown;
+  border-radius: 30px;
+  padding: 3px;
+  position: relative;
+  left: -8px;
+  top: -10px;
+  opacity: 0.9;
+  color: white;
+}
