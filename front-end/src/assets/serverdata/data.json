@@ -1,0 +1,66 @@
+[
+  {
+    "id": 0,
+    "item_name": "KungFu",
+    "price": "500.00",
+    "category": "T-shirt",
+    "quantity": 10,
+    "imgsrcLink": "https://ilogo.in/ajax/color.php?id=125871&face=front&color=_ffffff&redirect&product_id=3105"
+  },
+  {
+    "id": 1,
+    "item_name": "TopGun",
+    "price": "1500.00",
+    "category": "Jacket",
+    "quantity": 5,
+    "imgsrcLink": "https://cdn.shopify.com/s/files/1/0613/8662/1177/products/Maverick-Top-Gun-2-Jacket_1024x1024@2x.jpg?v=1652722150"
+  },
+  {
+    "id": 2,
+    "item_name": "CarsR66-T1",
+    "price": "575.00",
+    "category": "T-shirt",
+    "quantity": 15,
+    " imgsrcLink": "https://ih1.redbubble.net/image.5029477401.0357/ssrco,classic_tee,mens,fafafa:ca443f4786,front_alt,square_product,600x600.jpg"
+  },
+  {
+    "id": 3,
+    "item_name": "AU-S1",
+    "price": "1275.00",
+    "category": "Sweater",
+    "quantity": 4,
+    "imgsrcLink": "https://m.media-amazon.com/images/I/A1nYNISnPeL._AC_CLa%7C2140%2C2000%7CA1AObWAGg-L.png%7C0%2C0%2C2140%2C2000%2B0.0%2C0.0%2C2140.0%2C2000.0_UY1000_.png"
+  },
+  {
+    "id": 4,
+    "item_name": "KP-T2",
+    "price": "1475.00",
+    "category": "T-shirt",
+    "quantity": 20,
+    "imgsrcLink": "https://ih1.redbubble.net/image.1018150904.2367/ssrco,classic_tee,mens,fafafa:ca443f4786,front_alt,square_product,600x600.jpg"
+  },
+  {
+    "id": 5,
+    "item_name": "TGM-T1",
+    "price": "2075.00",
+    "category": "T-shirt",
+    "quantity": 3,
+    "imgsrcLink": "https://ih1.redbubble.net/image.3649090999.9119/ssrco,slim_fit_t_shirt,mens,101010:01c5ca27c6,front,square_product,600x600.jpg"
+  },
+  {
+    "id": 6,
+    "item_name": "Cars-S1",
+    "price": "2475.00",
+    "category": "Sweater",
+    "quantity": 15,
+    " imgsrcLink": "https://i5.walmartimages.com/asr/0f937d11-4914-4e01-9b51-91dffe20339d.ba19e2d605a5618fff3fdc55d57de2fb.jpeg?odnHeight=580&odnWidth=580&odnBg=FFFFFF"
+  },
+  {
+    "id": 7,
+    "item_name": "AU-S2",
+    "price": "2255.00",
+    "category": "Sweater",
+    "quantity": 8,
+    "imgsrcLink": "https://www.hleatherjackets.com/wp-content/uploads/2022/01/Zachary-Levi-American-Underdog-2021-Kurt-Warner-Grey-Hoodie.jpg"
+  }
+]
