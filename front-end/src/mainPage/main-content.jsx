@@ -2,25 +2,30 @@ import { useState, useEffect } from "react";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import axios from "axios";
+//import axios from "axios"; ---uncomment when you are in development
 
 import AddToCart from "./addToCart";
 import CartItems from "./CartItems";
+import data from "../assets/serverdata/data.json"; //comment this when you are in development
 
 import "./main-content.css";
 
 export default function MainContent() {
-  const [allitem, setAllItem] = useState([]);
+  const [allitem, setAllItem] = useState(data); //change na initial state to [] when in development
   const [cartData, setCartData] = useState([]);
   //  Step 6
   //  Make sure that the response holds an array of objects in JSON format.
   //  http://127.0.0.2:3420/items
   //  fetch the data from server
-  useEffect(() => {
-    axios.get("http://127.0.0.2:3420/items").then((response) => {
-      setAllItem(response.data);
-    });
-  }, []);
+
+  /************************ */
+  // useEffect(() => {
+  //   axios.get("http://127.0.0.2:3420/items").then((response) => {
+  //     setAllItem(response.data);
+  //   });
+  // }, [])
+  /*********************** */
+
   //this function pass as a prop in <Addtocart > to get the specific card that chosen to be added in the cart
   const updatedCart = (newCartData) => {
     //check if it exist
