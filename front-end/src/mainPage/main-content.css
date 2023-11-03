@@ -127,13 +127,26 @@
   color: white;
 }
 
+@media only screen and (max-width: 950px) {
+  .main-content {
+    flex-direction: column-reverse;
+    align-items: center;
+
+    margin: auto;
+  }
+
+  .cart-info2 {
+    width: 450px;
+    top: 0vh;
+    margin: 0px 0px 30px 0px;
+  }
+}
+
 @media only screen and (max-width: 600px) {
   .main-content {
     padding: 25px 0px 0px 0px;
-    flex-direction: column-reverse;
-    align-items: center;
+
     width: 320px;
-    margin: auto;
   }
   .span-header {
     display: none;
@@ -141,8 +154,7 @@
 
   .cart-info2 {
     padding: 0px;
-    margin: 0px 0px 30px 0px;
+
     width: 320px;
-    top: 0vh;
   }
 }
