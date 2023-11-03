@@ -7,6 +7,8 @@ header {
   position: absolute;
   top: 0;
   height: 15vh;
+  display: flex;
+  align-items: center;
 }
 
 .span-header-left {
