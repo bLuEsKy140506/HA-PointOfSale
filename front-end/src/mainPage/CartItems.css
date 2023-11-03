@@ -42,3 +42,11 @@ tr:nth-child(even) {
   opacity: 0.9;
   color: white;
 }
+
+.show {
+  display: sticky;
+}
+
+.hide {
+  display: none;
+}

@@ -1,4 +1,5 @@
 import logo from "../assets/logo.jpg";
+import "./header.css";
 
 export default function HeaderLogo() {
   return (
@@ -13,15 +14,13 @@ export default function HeaderLogo() {
             justifyContent: "center",
             alignItems: "center",
             color: "wheat",
+            position: "relative",
           }}
         >
-          <span
-            style={{
-              fontSize: "3rem",
-            }}
-          >
-            CLOTHING
-          </span>
+          <div className="side-of-logo">
+            <span className="span-header span-header-left">CLOTHING</span>
+          </div>
+
           <a href="http://127.0.0.2:3420/myname">
             <img
               src={logo}
@@ -33,13 +32,9 @@ export default function HeaderLogo() {
               alt="logo-of-the-imaginary-company"
             ></img>
           </a>
-          <span
-            style={{
-              fontSize: "3rem",
-            }}
-          >
-            MOVIES
-          </span>
+          <div className="side-of-logo">
+            <span className="span-header span-header-right">MOVIES</span>
+          </div>
         </div>
       </header>
     </>

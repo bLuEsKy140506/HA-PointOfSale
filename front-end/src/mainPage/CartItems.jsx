@@ -4,11 +4,12 @@ import { useEffect, useState } from "react";
 export default function CartItems({ cartValues, onCartUpdate }) {
   const [newCart, setNewCart] = useState([]);
   const [count, setCount] = useState(1);
+  const [isActive, setIsActive] = useState(false);
 
   //needed to update the newCart instantly
   useEffect(() => {
     setNewCart(cartValues);
-  });
+  }, [cartValues]);
 
   //increment, and then create a new array of object
   function increment(index1, itemquantity) {
@@ -61,110 +62,135 @@ export default function CartItems({ cartValues, onCartUpdate }) {
     onCartUpdate(filtered);
   }
 
-  return (
-    <>
-      <h2>
-        <i
-          className="fa badge"
-          style={{
-            fontSize: "24px",
-          }}
-          value={cartValues.length}
-        >
-          &#xf07a;
-        </i>
-        YOUR CART INFO
-      </h2>
-      <table className="cart-table">
-        <thead>
-          <tr>
-            <td>IMAGE</td>
-            <td>ITEM NAME</td>
-            <td>QUANTITY</td>
-            <td>PRICE</td>
-            <td>SUBTOTAL</td>
-            <td>DEL?</td>
-          </tr>
-        </thead>
-        <tbody>
-          {newCart.map((item, index) => (
-            <tr key={index}>
-              <td>
-                <img
-                  src={item.pic}
-                  alt={`${item.pic}-img`}
-                  style={{
-                    width: "30px",
-                    height: "30px",
-                  }}
-                />
-              </td>
-              <td>{item.name}</td>
-              <td>
-                <div className="counter">
-                  <div className="quantity-btn">
-                    <button onClick={() => decrement(index, item.quantity)}>
-                      -
-                    </button>
-                    <input
-                      type="number"
-                      value={item.quantity}
-                      min="1"
-                      max="100"
-                      onChange={(e) => {
-                        setCount(Number(e.target.value));
-                        handleChange(index);
-                      }}
-                      style={{
-                        width: "25px",
-                        textAlign: "center",
-                      }}
-                    />
-                    <button onClick={() => increment(index, item.quantity)}>
-                      +
-                    </button>
-                  </div>
-                </div>
-              </td>
-              <td>₱ {item.price}</td>
-              <td>₱ {item.price * item.quantity}.00</td>
-              <td>
-                <button
-                  style={{
-                    padding: "5px 8px",
-                    borderRadius: "50%",
-                  }}
-                  onClick={(e) => {
-                    e.stopPropagation();
+  const handleClick = () => {
+    setIsActive((current) => !current);
+  };
 
-                    handleDelete(item.name);
-                  }}
-                >
-                  X
-                </button>
+  return (
+    <div>
+      <div
+        style={{
+          position: "relative",
+        }}
+      >
+        <h2>
+          <i
+            className="fa badge"
+            style={{
+              fontSize: "24px",
+            }}
+            value={cartValues.length}
+          >
+            &#xf07a;
+          </i>
+          YOUR CART INFO
+        </h2>
+        <button
+          style={{
+            padding: "4px 6px",
+            borderRadius: "10px",
+            position: "absolute",
+            top: "0",
+            right: "0",
+          }}
+          onClick={handleClick}
+        >
+          {isActive ? "SHOW" : "HIDE"}
+        </button>
+      </div>
+      <div className={isActive ? "hide" : "show"}>
+        <table className="cart-table">
+          <thead>
+            <tr>
+              <td>IMAGE</td>
+              <td>ITEM NAME</td>
+              <td>QUANTITY</td>
+              <td>PRICE</td>
+              <td>SUBTOTAL</td>
+              <td>DEL?</td>
+            </tr>
+          </thead>
+          <tbody>
+            {newCart.map((item, index) => (
+              <tr key={index}>
+                <td>
+                  <img
+                    src={item.pic}
+                    alt={`${item.pic}-img`}
+                    style={{
+                      width: "30px",
+                      height: "30px",
+                    }}
+                  />
+                </td>
+                <td>{item.name}</td>
+                <td>
+                  <div className="counter">
+                    <div className="quantity-btn">
+                      <button onClick={() => decrement(index, item.quantity)}>
+                        -
+                      </button>
+                      <input
+                        type="number"
+                        value={item.quantity}
+                        min="1"
+                        max="100"
+                        onChange={(e) => {
+                          setCount(Number(e.target.value));
+                          handleChange(index);
+                        }}
+                        style={{
+                          width: "25px",
+                          textAlign: "center",
+                        }}
+                      />
+                      <button onClick={() => increment(index, item.quantity)}>
+                        +
+                      </button>
+                    </div>
+                  </div>
+                </td>
+                <td>₱ {item.price}</td>
+                <td>₱ {item.price * item.quantity}.00</td>
+                <td>
+                  <button
+                    style={{
+                      padding: "5px 8px",
+                      borderRadius: "50%",
+                    }}
+                    onClick={(e) => {
+                      e.stopPropagation();
+
+                      handleDelete(item.name);
+                    }}
+                  >
+                    X
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colSpan={4}>GRAND TOTAL</td>
+              <td
+                colSpan={2}
+                style={{
+                  fontSize: "1rem",
+                  fontWeight: "bolder",
+                }}
+              >
+                ₱{" "}
+                {newCart.reduce(function (a, b) {
+                  return a + b.quantity * Number(b.price);
+                }, 0)}
+                .00
               </td>
             </tr>
-          ))}
-        </tbody>
-        <tfoot>
-          <tr>
-            <td colSpan={4}>GRAND TOTAL</td>
-            <td
-              colSpan={2}
-              style={{
-                fontSize: "1rem",
-                fontWeight: "bolder",
-              }}
-            >
-              ₱{" "}
-              {newCart.reduce(function (a, b) {
-                return a + b.quantity * Number(b.price);
-              }, 0)}
-              .00
-            </td>
-          </tr>
-        </tfoot>
-      </table>
+          </tfoot>
+        </table>
+      </div>
+
       {/* <div>
         <p>
           <span>NAME OF THE ITEM</span> -- <span>QUANTITY</span> X{" "}
@@ -180,6 +206,6 @@ export default function CartItems({ cartValues, onCartUpdate }) {
           </>
         ))}
       </div> */}
-    </>
+    </div>
   );
 }
