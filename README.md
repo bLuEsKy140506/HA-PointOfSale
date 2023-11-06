@@ -1,3 +1,5 @@
+Live view: [https://ha-point-of-sale.vercel.app/](https://ha-point-of-sale.vercel.app/)
+
 # HA-PointOfSale
  API plus Front-end
 
